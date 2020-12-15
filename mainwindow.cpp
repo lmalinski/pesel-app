@@ -23,7 +23,7 @@ void MainWindow::on_verifyBut_clicked()
     //Sprawdzenie długości:
     if(pesel.length() < PESEL_LENGTH)
     {
-        ui->statusbar->showMessage("Za malo znaków!");
+        ui->statusbar->showMessage("Za mało znaków!");
         return;
     }
 
