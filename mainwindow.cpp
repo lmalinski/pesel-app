@@ -23,7 +23,7 @@ void MainWindow::on_verifyBut_clicked()
     //Sprawdzenie długości:
     if(pesel.length() < PESEL_LENGTH)
     {
-        ui->statusbar->showMessage("Za malo znaków w nr. PESEL!");
+        ui->statusbar->showMessage("Za malo znaków!");
         return;
     }
 
@@ -35,7 +35,7 @@ void MainWindow::on_verifyBut_clicked()
         //sprawdzenie czy cyfra:
         if(!isdigit(digit))
         {
-            ui->statusbar->showMessage("Niedozwolone znaki w nr. PESEL!");
+            ui->statusbar->showMessage("Niedozwolone znaki!");
             return;
         }
         else digits[i] = digit - '0';
@@ -49,14 +49,9 @@ void MainWindow::on_verifyBut_clicked()
 
     //wyryfikacja sumy:
     if(suma%10==0)
-    {
        ui->processBut->setEnabled(true);
-    }
     else
-    {
-        ui->statusbar->showMessage("Bład sumy kontrolnej w nr. PESEL!");
-        return;
-    }
+        ui->statusbar->showMessage("Błąd sumy kontrolnej!");
 }
 
 void MainWindow::on_pesel_editingFinished()
@@ -78,7 +73,7 @@ void MainWindow::on_processBut_clicked()
         //sprawdzenie czy cyfra:
         if(!isdigit(digit))
         {
-            ui->statusbar->showMessage("Niedozwolone znaki w nr. PESEL!");
+            ui->statusbar->showMessage("Niedozwolone znaki!");
             return;
         }
         else digits[i] = digit - '0';
